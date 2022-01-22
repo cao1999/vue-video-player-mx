@@ -1,0 +1,194 @@
+/****** 视频控制器组件 ******/
+.mx-video-player__controls {
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 0;
+  z-index: 217483647;
+  width: 100%;
+  padding: 4px;
+  opacity: 0;
+  background-color: rgba(43, 51, 63, 0.4);
+
+  /* 控制controls组件的显示和隐藏 */
+  &_show {
+    animation: showControls 0.5s forwards;
+  }
+
+  &_hide {
+    animation: hideControls 0.5s forwards;
+  }
+
+  /* 第一层设置 */
+  &-top {
+  }
+
+  /* 第二层设置 */
+  &-bottom {
+    display: flex;
+    height: 30px;
+    padding: 0 10px;
+    justify-content: space-between;
+
+    /* 第二层设置的右侧 */
+    &--left,
+    &--right {
+      display: flex;
+    }
+  }
+}
+
+/****** 视频播放进度条 ******/
+.mx-video-player__progress {
+  padding: 0 6px;
+}
+
+/* 控制controls显示与隐藏的动画 */
+@keyframes showControls {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hideControls {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/****** 弹幕组件 ******/
+
+.mx-video-player__shotScreen {
+  &:hover {
+    padding-top: 50px;
+    margin-top: -50px;
+
+    .mx-video-player__shotScreen-menu {
+      display: block;
+    }
+  }
+
+  &-menu {
+    position: absolute;
+    display: none;
+    padding: 10px;
+  }
+}
+
+/****** 音量slider ******/
+.mx-video-player__volume {
+  display: flex;
+  align-items: center;
+
+  &-btn {
+  }
+
+  &-slider {
+    width: 0;
+    overflow: hidden;
+
+    /* 显示音量slider */
+    &--show {
+      animation: showVolumeSlider 0.1s forwards;
+    }
+
+    /* 隐藏音量slider */
+    &--hide {
+      animation: hideVolumeSlider 0.1s forwards;
+    }
+  }
+}
+
+/* 控制音量的动画效果 */
+@keyframes showVolumeSlider {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100px;
+  }
+}
+
+@keyframes hideVolumeSlider {
+  0% {
+    width: 100px;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+/****** 倍速 ******/
+.mx-video-player__speed {
+  /* hover显示列表 */
+  &:hover {
+    /*hover的时候修改padding，这样就可以移动到options区域 利用padding实现btn到option的过渡 */
+    padding-top: 50px;
+    margin-top: -50px;
+
+    .mx-video-player__speed-options {
+      display: block;
+    }
+  }
+
+  /* 倍速options */
+  &-options {
+    display: none;
+    width: 100%;
+
+    /* 倍速item，增加权重 */
+    .mx-video-player__speed &-item {
+      width: 100%;
+      padding: 6px 0;
+      text-align: center;
+
+      &:hover {
+        background-color: rgba(115, 133, 159, 0.5);
+      }
+    }
+  }
+}
+
+/* 增加权重，hover的颜色不覆盖active的颜色 */
+.mx-video-player__speed-options
+  .mx-video-player__speed-item.mx-video-player__speed-item_active {
+  background-color: #fff;
+  color: #000;
+}
+
+/****** 网页全屏 ******/
+.mx-video-player__webfullscreen {
+  &:hover {
+    .mx-video-player__webfullscreen-menu {
+      display: block;
+    }
+  }
+
+  &-menu {
+    display: none;
+    padding: 4px 6px;
+  }
+}
+
+/****** 全屏 ******/
+.mx-video-player__fullscreen {
+  &:hover {
+    .mx-video-player__fullscreen-menu {
+      display: block;
+    }
+  }
+
+  &-menu {
+    display: none;
+    padding: 4px 6px;
+  }
+}

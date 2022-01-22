@@ -1,0 +1,42 @@
+.mx-video-player {
+  &__mask-progress {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 10000;
+
+    &_show {
+      animation: showMaskProgress 0.5s forwards;
+    }
+
+    &_hide {
+      animation: hideMaskProgress 0.5s forwards;
+    }
+  }
+}
+
+/* 控制mask progress显示与隐藏的动画 */
+@keyframes showMaskProgress {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    height: 4px;
+    opacity: 1;
+  }
+}
+
+@keyframes hideMaskProgress {
+  0% {
+    height: 4px;
+    opacity: 1;
+  }
+
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}

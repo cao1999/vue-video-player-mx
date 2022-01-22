@@ -1,0 +1,40 @@
+.mx-video-player {
+  /* 禁止用户选中文本 */
+  user-select: none;
+
+  ul,
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+  }
+
+  /* 核心模块，video标签 */
+  &__core {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 视频的播放状态 */
+  &__state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+
+    /* 显示在屏幕上的视频状态icon */
+    &-button {
+      padding: 0;
+      color: #fff;
+      font-size: 40px;
+    }
+  }
+}
